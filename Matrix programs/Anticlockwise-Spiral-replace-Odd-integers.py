@@ -2,7 +2,7 @@
 Problem statement:
 		Get an input 'S' and get an matrix of size 'S X S' and get a 
 string 'A' write a program that checks elemnets in the matrix 
-'SPIRAL-CLOCKWISE' and if it encounters an odd integer it should be 
+'SPIRAL-ANTICLOCKWISE' and if it encounters an odd integer it should be 
 replace with the elements of the string 'A' if the number of odd 
 integers is greater than the length of the string then the program must 
 start replacing the integer circularly
