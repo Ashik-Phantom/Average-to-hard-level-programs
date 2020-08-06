@@ -50,7 +50,14 @@ arr=[list(map(int,input().split())) for i in range(s)]
 a=input().strip() 
 lena=len(a) 
 n,m,k,l,o=s,s,0,0,0 
+# k - starting row index 
+# m - ending row index 
+# l - starting column index 
+# n - ending column index 
+# i - iterator  
+# o - itretion of the string
 while(k<m and l<n): 
+	#first element of every column
 	for i in range(l,n): 
 		if arr[k][i]%2==1: 
 			arr[k][i]=a[o] 
@@ -58,6 +65,7 @@ while(k<m and l<n):
 		if o==lena: 
 			o=0 
 	k+=1 
+	#last element of every column
 	for i in range(k,m): 
 		if arr[i][n-1]%2==1:
 			 arr[i][n-1]=a[o] 
@@ -65,6 +73,7 @@ while(k<m and l<n):
 		if o==lena: 
 			o=0 
 	n-=1 
+	#last element of every column if Last and First row are not same
 	if k<m: 
 		for i in range(n-1,l-1,-1):
 			if arr[m-1][i]%2==1: 
@@ -73,6 +82,7 @@ while(k<m and l<n):
 			if o==lena: 
 				o=0 
 		m-=1 
+	#first element of every row if Last and First column are not same
 	if l<n: 
 		for i in range(m-1,k-1,-1): 
 			if arr[i][l]%2==1: 
