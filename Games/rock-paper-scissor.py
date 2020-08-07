@@ -31,7 +31,7 @@ your_score,computer_score=0,0
 
 while True:
 	print('\n\t\t\t\t\t\tROCK | PAPER | SCISSORS\n')
-	print('\t\t\t\t\t\tMake your choice:')
+	print('\t\t\t\t\t\t   Make your choice:')
 	choice = str(input("\n\t\t\t\t\t\t"))
 	choice = choice.lower()
 	os.system('cls')
