@@ -20,10 +20,13 @@ print("\t\t\t\t░╚═══██╗██║░░██╗██║░╚�
 print("\t\t\t\t█████╔╝╚█████╔╝██║██████╔╝██████╔╝╚█████╔╝██║░░██║██████╔╝")
 print("\t\t\t\t╚═════╝░░╚════╝░╚═╝╚═════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝╚═════╝░")
 print("\n\t\t\t\t\t\t\tBY ASHIK-PHANTOM")
+
+#Getting Inputs for time reset and max score
 reset_time=int(input("\n\t\t\t\t\t\t   Set reset time:(in sec): "))
 max_score=int(input("\n\t\t\t\t\t\t   Set Max score:(in units): "))
 sleep(1)
 os.system('cls')
+
 your_score,computer_score=0,0
 
 while True:
