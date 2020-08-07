@@ -1,3 +1,4 @@
+
 #SIMPLE ROCK PAPER SCISSORS GAME USING PYTHON RANDOM
 #code by Ashik-Phantom 
 
@@ -18,8 +19,9 @@ print("\t\t\t\t╚█████╗░██║░░╚═╝██║╚█�
 print("\t\t\t\t░╚═══██╗██║░░██╗██║░╚═══██╗░╚═══██╗██║░░██║██╔══██╗░╚═══██╗")
 print("\t\t\t\t█████╔╝╚█████╔╝██║██████╔╝██████╔╝╚█████╔╝██║░░██║██████╔╝")
 print("\t\t\t\t╚═════╝░░╚════╝░╚═╝╚═════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝╚═════╝░")
-reset_time=int(input("\n\t\t\t\t\t\tSet reset time:(in sec): "))
-max_score=int(input("\n\t\t\t\t\t\tSet Max score:(in units): "))
+print("\n\t\t\t\t\t\t\tBY ASHIK-PHANTOM")
+reset_time=int(input("\n\t\t\t\t\t\t   Set reset time:(in sec): "))
+max_score=int(input("\n\t\t\t\t\t\t   Set Max score:(in units): "))
 sleep(1)
 os.system('cls')
 your_score,computer_score=0,0
@@ -74,3 +76,4 @@ while True:
 			break
 	else:
 		print("\t\t\t\t\t\tinvalid choice, try again")
+
