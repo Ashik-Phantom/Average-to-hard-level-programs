@@ -1,4 +1,5 @@
 #SIMPLE ROCK PAPER SCISSORS GAME USING PYTHON RANDOM
+#code by Ashik-Phantom 
 
 import random
 import os
@@ -74,4 +75,3 @@ while True:
 	else:
 		print("\t\t\t\t\t\tinvalid choice, try again")
 		
-#CODE BY Ashik-Phantom
