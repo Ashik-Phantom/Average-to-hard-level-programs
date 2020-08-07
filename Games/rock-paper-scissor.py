@@ -1,10 +1,11 @@
 
-#SIMPLE ROCK PAPER SCISSORS GAME USING PYTHON RANDOM
+#SIMPLE ROCK PAPER SCISSORS GAME USING PYTHON RANDOM with exception handling
 #code by Ashik-Phantom 
 
 import random
 import os
 from time import sleep
+from retrying import retry
 
 print("\n\t\t\t██████╗░░█████╗░░█████╗░██╗░░██╗   ██████╗░░█████╗░██████╗░███████╗██████╗░")
 print("\t\t\t██╔══██╗██╔══██╗██╔══██╗██║░██╔╝   ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗")
@@ -22,8 +23,19 @@ print("\t\t\t\t╚═════╝░░╚════╝░╚═╝╚═�
 print("\n\t\t\t\t\t\t\tBY ASHIK-PHANTOM")
 
 #Getting Inputs for time reset and max score
-reset_time=int(input("\n\t\t\t\t\t\t   Set reset time:(in sec): "))
-max_score=int(input("\n\t\t\t\t\t\t   Set Max score:(in units): "))
+while(True):
+	try:
+		reset_time=int(input("\n\t\t\t\t\t\t   Set reset time:(in sec): "))
+		break
+	except:
+		print('\n\t\t\t\t\t\t     Please enter a number')
+while(True):
+	try:
+		max_score=int(input("\n\t\t\t\t\t\t   Set Max score:(in units): "))
+		break
+	except:
+		print('\n\t\t\t\t\t\t     Please enter a number')
+	
 sleep(1)
 os.system('cls')
 
@@ -32,7 +44,7 @@ your_score,computer_score=0,0
 while True:
 	print('\n\t\t\t\t\t\tROCK | PAPER | SCISSORS\n')
 	print('\t\t\t\t\t\t   Make your choice:')
-	choice = str(input("\n\t\t\t\t\t\t"))
+	choice = str(input("\n\t\t\t\t\t\t\t "))
 	choice = choice.lower()
 	os.system('cls')
 	choices = ['rock', 'paper', 'scissors']
@@ -79,4 +91,7 @@ while True:
 			break
 	else:
 		print("\t\t\t\t\t\tinvalid choice, try again")
+
+
+
 
