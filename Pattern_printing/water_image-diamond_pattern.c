@@ -49,7 +49,9 @@ The program must accept an integer N as the input. The program must print 2*N li
   10 9 8 7
   *6 5 4
   **3 2
-  ***1 */ 
+  ***1 
+  
+  */ 
   
 //Solution 
   
