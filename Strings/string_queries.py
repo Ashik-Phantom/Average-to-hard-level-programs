@@ -4,11 +4,11 @@ Example Input/Output:
 Input:
 skillrack 
 5
-s+1 
-2+s 
-s+4 
-s+1 
-3+s
+S+1 
+2+S 
+S+4 
+S+1 
+3+S
 
 Output:
 sksskskillrackkackkk
