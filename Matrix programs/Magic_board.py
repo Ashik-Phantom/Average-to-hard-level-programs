@@ -1,4 +1,4 @@
-# (Incorrect)
+# (incorrect)
 
 m, n=map(int, input().split())
 no_of_reds = int(input())
@@ -35,9 +35,8 @@ for i in board:
     print(*i)
 print()
 print("changing position:")
-c = 1
 for x in range(moves):
-    print("Move", c, sep=" ")
+    print("Move", x+1, sep=" ")
     if x % 2 == 0:
         for i in range(m):
             for j in range(n):
@@ -69,7 +68,6 @@ for x in range(moves):
     for i in board:
         print(*i)
     print()
-    c+=1
 print()
 print("Final Answer:")
 for i in board:
