@@ -24,7 +24,15 @@ Input:
 Output:
 6
 """
+# Solution 
 
-###########################
-# Will be updated tomorrow#
-###########################
+a = list(map(int,input().split()))
+k = int(input())
+a.sort()
+b = []
+c = 0
+for i in range(len(a)):
+    for j in range(len(a)-1, i, -1):
+        if(a[j] - a[i] <= k):
+            b.append(i + (len(a) - j - 1))
+print(min(b))
