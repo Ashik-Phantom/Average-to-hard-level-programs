@@ -81,8 +81,8 @@ def count_of_odd_diagnals(count,l):
     return count    
  
 # Main
-r,c = map(int,input().split()) 
-l = [list(map(int,input().split())) for i in range(r)] 
+r, c = map(int, input().split()) 
+l = [list(map(int, input().split())) for i in range(r)] 
 count = 0
 count = count_of_odd_diagnals(count, top_left_to_bottom_right_diagonal(r, c, l))
 count = count_of_odd_diagnals(count, top_right_to_bottom_left_diagonal(r, c, l))
