@@ -56,37 +56,34 @@ Output:
 # Solution 
 
 # top left to bottom right diagonal
-def top_left_to_bottom_right_diagonal(r,c,l): 
-    g=[[l[i-j][j] for j in range(max(i-r+1,0),min(i+1,c))] for i in range(r+c-1)] 
+def top_left_to_bottom_right_diagonal(r, c, l): 
+    g = [[l[i - j][j] for j in range(max(i - r + 1, 0), min(i + 1, c))] for i in range(r + c - 1)] 
     return g 
 
 # top right to bottom left diagonal
-def top_right_to_bottom_left_diagonal(r,c,l): 
-    p={x:[] for x in range(r-1,-c,-1)} 
+def top_right_to_bottom_left_diagonal(r, c, l): 
+    p = {x : [] for x in range(r-1, -c, -1)} 
     for i in range(r): 
         for j in range(c): 
-            p[i-j].append(l[i][j]) 
-    g=[i for i in p.values()] 
+            p[i - j].append(l[i][j]) 
+    g = [i for i in p.values()] 
     return g
-    
+
+# count of odd diagnals
+def count_of_odd_diagnals(count,l):
+    for i in l: 
+        f = 0 
+        for j in i: 
+            if j % 2 == 0: 
+                f = 1 
+        if f == 0: 
+            count += 1
+    return count    
+ 
 # Main
 r,c = map(int,input().split()) 
 l = [list(map(int,input().split())) for i in range(r)] 
-top_left_to_bottom_right = top_left_to_bottom_right_diagonal(r,c,l)
-top_right_to_bottom_left = top_right_to_bottom_left_diagonal(r,c,l)
-count=0
-for i in top_left_to_bottom_right: 
-    f=0 
-    for j in i: 
-        if j%2==0: 
-            f=1 
-    if f==0: 
-        count+=1
-for i in top_right_to_bottom_left: 
-    f=0 
-    for j in i: 
-        if j%2==0: 
-            f=1 
-    if f==0: 
-        count+=1
+count = 0
+count = count_of_odd_diagnals(count, top_left_to_bottom_right_diagonal(r, c, l))
+count = count_of_odd_diagnals(count, top_right_to_bottom_left_diagonal(r, c, l))
 print(count)
