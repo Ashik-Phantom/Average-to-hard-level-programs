@@ -67,9 +67,11 @@ for i in range(r):
 		d2[i+j].append(m[i][j])
 k1=[i for i in d1.keys()]
 k2=[i for i in d2.keys()]
+print(d1,d2)
 for i in k1:
 	if x in d1[i]:
 		a=i
+for i in k2:
 	if x in d2[i]:
 		b=i		
 print("\nkey1=",a)
@@ -82,4 +84,3 @@ for i in range(r):
 		else:
 			print(m[i][j],end=" ")
 	print()
-
