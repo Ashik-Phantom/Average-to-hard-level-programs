@@ -54,7 +54,73 @@ Output:
 3 * 39 *
 """
 
-#solution
+#solutions
+
+#######################################################################################################
+################################### Method 1 - Using position #######################################
+#######################################################################################################
+r,c=map(int,input().split())
+l=[list(map(int,input().split()))for i in range(r)]
+k=int(input())
+f=0
+for i in range(r):
+    for j in range(c):
+        if l[i][j]==k:
+            x,y=i,j
+            f=1
+            break
+    if f==1:
+        break
+for i in range(r):
+    for j in range(c):
+        if abs(x-i)==abs(y-j):
+            print('*',end=" ")
+        else:
+            print(l[i][j],end=" ")
+    print()
+	
+#######################################################################################################
+################################### Method 2 - Using While loop #######################################
+#######################################################################################################
+m,n=map(int,input().split())
+l=[list(map(int,input().split())) for i in range(m)] 
+k=int(input())
+f=0
+for i in range(m):
+	for j in range(n):
+		if l[i][j]==k:
+			tempi=i
+			tempj=j
+			f=1
+			break
+	if f==1:
+		break
+x,y=tempi,tempj
+while(x>=0 and y<n):
+    l[x][y]='*'
+    x-=1
+    y+=1
+x,y=tempi,tempj
+while(x<m and y>=0):
+    l[x][y]='*'
+    x+=1
+    y-=1
+x,y=tempi,tempj
+while(x>=0 and y>=0):
+    l[x][y]='*'
+    x-=1
+    y-=1
+x,y=tempi,tempj
+while(x<m and y<n):
+    l[x][y]='*'
+    x+=1
+    y+=1
+for i in l:
+    print(*i)
+	
+#######################################################################################################
+##################################### Method 3 - Using Dictionary######################################
+#######################################################################################################
 from collections import defaultdict as dt
 r,c=map(int,input().split())
 m=[list(map(int,input().split())) for i in range(r)]
@@ -67,16 +133,12 @@ for i in range(r):
 		d2[i+j].append(m[i][j])
 k1=[i for i in d1.keys()]
 k2=[i for i in d2.keys()]
-print(d1,d2)
 for i in k1:
 	if x in d1[i]:
 		a=i
 for i in k2:
 	if x in d2[i]:
 		b=i		
-print("\nkey1=",a)
-print("key2=",b)
-print()
 for i in range(r):
 	for j in range(c):
 		if i-j==a or i+j==b:
