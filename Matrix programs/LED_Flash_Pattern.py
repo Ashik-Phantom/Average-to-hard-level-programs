@@ -13,3 +13,38 @@ Boundary Condition(s):2 <= N <= 100
 1 <= Each matrix element <= 10^8
 Input Format:The first line contains N.The next N lines, each contains N integers separated by a space.Output Format:The first line contains the highest lumen of the LED at every second in the matrix separated by a space.Example Input/Output 1:Input:41 2 8 46 3 4 15 6 7 29 3 4 9Output:9 8 9 6 9 1 9Explanation:At t = 1, the lumen values of the flashing LED's are given below.1 2 8 46 3 4 15 6 7 29 3 4 9Here 9 is the highest lumen value.At t = 2, the lumen values of the flashing LEDs are given below.1 2 86 3 45 6 7Here 8 is the highest lumen value.At t = 3, the lumen values of the flashing LEDs are given below.3 4 16 7 23 4 9Here 9 is the highest lumen value.At t = 4, the lumen values of the flashing LEDs are given below.1 26 3Here 6 is the highest lumen value.Similarly, at t = 5, 9 is the highest lumen value.At t = 6, 1 is the only highest lumen value.At t = 7, 9 is the only highest lumen value.At t = 8, the pattern ends as all the LEDs not flashing at this time.Hence the output is9 8 9 6 9 1 9Example Input/Output 2:Input:567 82 13 18 7691 43 25 79 5299 31 37 51 5395 82 67 54 8339 23 92 61 84Output:99 99 92 99 92 91 84 67 84
 """
+n = int(input())
+
+l = [ list(map(int,input().split())) for _ in range(n) ]
+
+m = 0 
+
+for i in l:
+    m = max(max(i),m)
+    
+print(m,end=' ')
+
+ind = 1
+
+m = 0
+
+val = 4
+
+while ind<n :
+    
+    for i in range(n-ind):
+        for j in range(n-ind):
+            m = max(m,l[i][j])
+            
+    print(m,end=' ')
+    m=0
+    
+    for i in range(ind,n):
+        for j in range(ind,n):
+            m = max(m,l[i][j])
+                
+    print(m,end=' ')
+    val-=1
+
+    ind+=1
+    m=0
