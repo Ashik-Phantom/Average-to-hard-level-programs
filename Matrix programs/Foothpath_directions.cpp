@@ -1,5 +1,5 @@
-# Footpath - Four Directions
-"""
+// Footpath - Four Directions
+/*
 The program must accept four integers N, W, S and E representing the number of steps in the directions North, West, South and East respectively. 
 A person is standing in a position, and he moves N steps towards the north, then he moves W steps towards the west, 
 then he moves S steps towards the south and E steps towards the east. The program must print the output based on the following conditions.
@@ -65,7 +65,7 @@ SEEEEE
 -----N
 -----N
 -----N
-"""
+*/
 
 
 #include <bits/stdc++.h>
