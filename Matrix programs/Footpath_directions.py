@@ -67,9 +67,39 @@ SEEEEE
 -----N
 """
 
+############################################## 
+# logic 1 
+# 100% correct
+n,w,s,e=map(int,input().split()) 
+if s>=n:
+    x=max(w,e)
+else:
+    x=w
+y=max(n,s) 
+mat=[]
+for i in range(y+1):
+    temp=[]
+    for j in range(x+1):
+        temp.append("-")
+    mat.append(temp)    
+for i in range(0,w):
+    mat[0][i]="W"
+for i in range(0,n):
+    mat[i][w]="N"
+for i in range(1,s+1):
+    mat[i][0]="S" 
+for i in range(1,e+1):
+    try:
+        mat[s][i]="E"
+    except:
+        break     
+for i in mat:
+    if len(set(i))!=1:
+        print(*i,sep="")
+	
 ##############################################
-# logic 1
-# 50% correct
+# logic 2
+# 100% correct
 
 n,w,s,e=map(int,input().split()) 
 r=max(n,s)
@@ -91,9 +121,9 @@ for i in l:
 		continue 
 	else: 
 		print(*i,sep="")
-		
+
 ##############################################
-# logic 2 
+# logic 3 
 # 70% correct
 
 n,w,s,e=map(int,input().split()) 
@@ -122,3 +152,25 @@ for i in l:
 			print(g.rstrip('-'))
 		else:
 			print(g)
+
+##############################################
+# logic 4
+# 50% correct
+		
+n,w,s,e=map(int,input().split()) 
+row,col=max(s,n-1),max(w,e)
+if s+1<n+1:
+    col=w
+l=[['-']*(1+col) for i in range(row+1)]
+for i in range(n):
+    l[i][w]='N' 
+for i in range(w):
+    l[0][i]='W' 
+for i in range(1,s+1):
+    l[i][0]='S' 
+for i in range(1,e+1):
+    if i<col+1:
+        l[s][i]='E' 
+[print(*i,sep="") for i in l]  
+
+
