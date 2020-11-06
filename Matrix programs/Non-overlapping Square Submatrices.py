@@ -4,5 +4,18 @@ The program must accept an integer matrix of size RxC as the input. The program 
 """
 
 # Solution
-r,c=map(int,input().split()) l=[list(map(int,input().split())) for i in range(r)]minn=min(r,c) for s in range(2,minn+1): row=r//s for i in range(0,row*s,s): col=c//s for j in range(0,col*s,s): if len(l[i:i+s])!=s: break for ctr in range(i,i+s): for ctc in range(j,j+s): print(l[ctr][ctc],end=" ") print()
-
+r,c=map(int,input().split()) 
+l=[list(map(int,input().split())) for i in range(r)]
+index=min(r,c) 
+for s in range(2,index+1): 
+        row=r//s 
+        for i in range(0,row*s,s): 
+            col=c//s 
+            for j in range(0,col*s,s): 
+                if len(l[i:i+s])!=s: 
+                    break 
+                for ctr in range(i,i+s): 
+                    for ctc in range(j,j+s): 
+                        print(l[ctr][ctc],end=" ") 
+                    print()
+                    
