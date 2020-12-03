@@ -57,3 +57,30 @@ d I D k F
 o O m x w 
 w i Q h i
 """
+
+
+# Solution 
+r, c = map(int, input().split())
+l = [list(map(str, input().strip().split())) for i in range(r)]
+s = input().strip()
+f=0
+for i in range(r):
+    for j in range(c):
+        if s[0]==l[i][j]:
+            x,y,f=i,j,1
+            break
+    if f==1:
+        break 
+for i in s:
+    l[x][y]=i
+    x+=1 
+    if x==r:
+        x=0 
+        y+=1
+    if y==c:
+        y=0 
+for i in l:
+    print(*i)
+ 
+         
+      
