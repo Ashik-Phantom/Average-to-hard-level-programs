@@ -60,13 +60,13 @@ w i Q h i
 
 
 # Solution 
-r, c = map(int, input().split())
-l = [list(map(str, input().strip().split())) for i in range(r)]
+r, c = map(int,input().split())
+l = [list(map(str,input().split())) for i in range(r)]
 s = input().strip()
 f=0
 for i in range(r):
     for j in range(c):
-        if s[0]==l[i][j]:
+        if l[i][j]==s[0]:
             x,y,f=i,j,1
             break
     if f==1:
@@ -81,6 +81,5 @@ for i in s:
         y=0 
 for i in l:
     print(*i)
- 
          
       
