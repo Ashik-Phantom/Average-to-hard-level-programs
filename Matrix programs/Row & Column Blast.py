@@ -84,4 +84,49 @@ Output:
 8 5 -2 18
 """
 
-#Solution
+# Solution
+r, c = map(int,input().split())
+l = [list(map(int,input().split())) for i in range(r)]
+n=int(input()) 
+for ii in range(n):
+    x,y=map(int,input().split()) 
+    x,y=x-1,y-1
+    l[x][y]-=(r+c)
+    # top
+    tr,tc,tx,ty=r,c,x,y
+    while(tx!=0):
+        tx-=1
+        tr-=1
+        l[tx][ty]-=tr 
+        
+    # bottom
+    tr,tc,tx,ty=r,c,x,y
+    while(tx!=r-1):
+        tx+=1
+        tr-=1
+        l[tx][ty]-=tr 
+        
+    #Left
+    tr,tc,tx,ty=r,c,x,y
+    while(ty!=0):
+        ty-=1
+        tc-=1
+        l[tx][ty]-=tc 
+        
+    # Right
+    tr,tc,tx,ty=r,c,x,y
+    while(ty!=c-1):
+        ty+=1
+        tc-=1 
+        l[tx][ty]-=tc
+    """
+    print('Move',ii+1)
+    for i in l:
+        print(*i)
+    print()
+    """
+    
+# final 
+# print('Soultion')
+for i in l:
+    print(*i)
