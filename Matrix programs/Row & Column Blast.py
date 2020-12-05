@@ -83,8 +83,37 @@ Output:
 4 20 3 7
 8 5 -2 18
 """
+# solution 1
 
-# Solution
+row,col=map(int,input().split()) 
+matrix=[list(map(int,input().split())) for i in range(row)] 
+x=int(input()) 
+for i in range(x):
+    r,c=map(int,input().split()) 
+    r-=1 
+    c-=1 
+    matrix[r][c]-=(row+col) 
+    ind=1 
+    for j in range(r+1,row):
+        matrix[j][c]-=(row-ind) 
+        ind+=1 
+    ind=1 
+    for j in range(r-1,-1,-1):
+        matrix[j][c]-=(row-ind) 
+        ind+=1 
+    ind=1
+    for j in range(c+1,col):
+        matrix[r][j]-=(col-ind) 
+        ind+=1 
+    ind=1 
+    for j in range(c-1,-1,-1):
+        matrix[r][j]-=(col-ind) 
+        ind+=1 
+for i in matrix:
+    print(*i)
+    
+# Solution 2 (mine)
+
 r, c = map(int,input().split())
 l = [list(map(int,input().split())) for i in range(r)]
 n=int(input()) 
