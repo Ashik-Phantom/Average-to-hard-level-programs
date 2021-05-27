@@ -60,3 +60,30 @@ for i in range(1,mon[m]+1):
         print("%02d-%s-%d"%(i,s2,year))
     x+=1
     
+    
+#using calender 
+
+import calendar
+s1=input().strip()
+s2=input().strip()
+y=int(input())
+mon=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+month=calendar.monthcalendar(y,mon.index(s2)+1)
+la=max(month[-1][calendar.SUNDAY],month[-2][calendar.SUNDAY])
+fi=min(month[0][calendar.SUNDAY],month[1][calendar.SUNDAY])
+for i in range(fi,la+1,7):
+    print("%02d"%(i),end="")
+    print("-"+s2+"-"+str(y))
+    
+    
+#using date time 
+
+from datetime import datetime as dt
+from datetime import timedelta as td
+S1, S2, Y = input().strip(), input().strip(), int(input())
+S = dt.strptime("{}-{}-01".format(Y, S2), "%Y-%b-%d")
+month = S.month
+while S.month == month:
+    if(dt.strftime(S, "%A") == "Sunday"): print(dt.strftime(S, "%d-%b-%Y"))
+    S+=td(days=1)
+    
