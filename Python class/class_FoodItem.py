@@ -40,6 +40,31 @@ Pizza:350
 
 
 """
+#Solution
+
+class FoodItem:
+    def __init__(self,name,price):
+        self.name=name
+        self.price=price
+    def __repr__(self):
+        return str(self.name)+":"+str(self.price)
+    def __lt__(self,other):
+        return self.price<other.price
+N = int(input())
+foodItems = []
+for ctr in range(N):
+    name, price = input().strip().split()
+    foodItems.append(FoodItem(name, int(price)))
+foodItems.sort()
+for food in foodItems:
+    print(food)
+    
+ 
+
+
+
+
+#more examples
 
 class FoodItem: 
     def __init__(self,a,b): 
@@ -52,13 +77,4 @@ class FoodItem:
     def __eq__(self,obj): return self.b == obj.b
     def __repr__(self): return str((self.a + ':' + str(self.b)))
     
-    
-n=int(input())
-fooditems=[]
-for i in range(n):
-    name, price = input().split()
-    fooditems.append(FoodItem(name, int(price)))
-    
-fooditems.sort()
-for i in fooditems:
-    print(i)
+
