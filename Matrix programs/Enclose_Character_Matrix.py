@@ -113,3 +113,83 @@ Output:
 0 0 1 1 0 0 1 1 0 0 1 1
 0 0 1 1 0 0 1 1 0 0 1 1
 """
+
+
+
+#Solution 1 
+
+r,c=map(int,input().split())
+m=[input().split() for x in range(r)]
+k=int(input())
+for x in range(r+(2*k)):
+    for y in range(c+(2*k)):
+        if (x//k+y//k)%2:
+            ch=0
+        else: ch=1
+        if x<k or y<k or x>=(r+k) or y>=(c+k):
+            print(ch,end=" ")
+        else:
+            print(m[x-k][y-k],end=" ")
+    print()
+    
+    
+    
+#Solution 2
+
+p,q=map(int,input().split());soni=[list(map(str,input().split())) for _ in 'p'*p];l=int(input());fuh=[];first=[];last=[];a=0
+for x in range((q//l)+2):
+    if x%2==0:first+=[1]*l;last+=[0]*l 
+    else:first+=[0]*l;last+=[1]*l
+for x in range((p//l)+2):
+    for _ in range(l):fuh+=[first[:]] if x%2==0 else [last[:]]
+for x in range(l,l+p):
+    b=0
+    for y in range(l,l+q):fuh[x][y]=soni[a][b];b+=1 
+    a+=1 
+for x in fuh:print(*x)
+#print("fuhrer")
+
+
+#Solution 3
+
+r,c=map(int,input().split())
+l=[input().split() for i in range(r)]
+k=int(input())
+x,y=(2*k)+r,(2*k)+c
+m=1
+s=[[] for i in range(x)]
+for i in range((r//k)+2):
+    p=[]
+    for j in range(2+(c//k)):
+        o=(1+i+j)%2
+        for t in range(k):
+            for q in range(k):
+                s[(i*k)+t].append(o)
+for i in range(r): 
+    for j in range(c):
+        s[i+k][j+k]=l[i][j]
+for i in s:
+    print(*i)
+    
+    
+# Solution 4 
+
+r,c=map(int,input().split())
+m=[input().strip().split() for x in range(r)]
+k=int(input())
+mat=[]
+totRows = (r+2*k)//k
+for x in range(totRows):
+    if x%2==0:
+        row=(("1"*k+"0"*k)*100)[:c+2*k] 
+    else:
+        row=(("0"*k+"1"*k)*100)[:c+2*k] 
+    for y in range(k):
+        mat.append(list(row))
+for x in range(k,k+r):
+    for y in range(k,k+c):
+        mat[x][y]=m[x-k][y-k]
+for g in mat:
+    print(*g)
+    
+    
