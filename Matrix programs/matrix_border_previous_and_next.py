@@ -64,3 +64,146 @@ Input:
 Output:
 -1
 """
+
+#Solution 1
+
+r,c=map(int,input().split())
+m=[input().split() for _ in range(r)]
+k=input().strip()
+for j in range(c):
+    if m[0][j]==k:
+        a=0
+        b=j
+        break
+else:
+    for i in range(1,r-1):
+        if m[i][0]==k:
+            a=i
+            b=0
+            break
+        elif m[i][c-1]==k:
+            a=i
+            b=c-1
+            break
+    else:
+        for j in range(c):
+            if m[r-1][j]==k:
+                a=r-1
+                b=j
+                break
+        else:
+            print(-1)
+            exit()
+x,y=a,b
+ctr=0
+tot=(2*c+2*(r-2))//2
+t=[]
+t2=[]
+while True:
+    if ctr<tot:
+        t.append(m[a][b])
+    else:
+        t2.insert(0,m[a][b])
+    if a==0:
+        if b==0:
+            a+=1
+        else:
+            b-=1
+    elif a==r-1:
+        if b==c-1:
+            a-=1
+        else:
+            b+=1
+    else:
+        if b==0:
+            a+=1
+        else:
+            a-=1
+    if a==x and b==y:
+        break
+    ctr+=1
+print(t.pop(0),end=' ')
+for i in range(tot-1):
+    print(t[i],t2[i],end=' ')
+print(t2[-1])
+
+#Solution 2 
+
+def getBorderElements(row,col):
+    bArr=[]
+    for ctr in range(1,R+R+C+C-3):
+        bArr.append(matrix[row][col])
+        if row==0 and col<C-1:
+            col+=1 
+        elif col==C-1 and row<R-1:
+            row+=1 
+        elif row==R-1 and col>0:
+            col-=1 
+        elif col==0 and row>0:
+            row-=1 
+    return bArr
+R,C=map(int,input().split())
+matrix=[list(map(int,input().split())) for row in range(R)]
+K=int(input())
+found=False
+for row in range(R):
+    for col in range(C):
+        if matrix[row][col]==K and found==False and (row==0 or col==0 or row==R-1 or col==C-1):
+            X=row
+            Y=col
+            found=True
+if not found:
+    print(-1)
+else:
+    borderElements=getBorderElements(X,Y)
+    print(K,end=" ")
+    for ctr in range(1,len(borderElements)//2):
+        print(borderElements[-ctr],borderElements[ctr],end=" ")
+    print(borderElements[len(borderElements)//2])
+    
+# Solution 3
+
+n,m=map(int,input().split()) 
+l=[list(map(int,input().split())) for i in range(n)] 
+x=int(input())
+l1=[] 
+f=[-1,-1]
+c=0
+for i in range(m):
+    l1.append(l[0][i])
+    if l[0][i]==x and f[0]==-1:
+        f[0]=len(l1)-1
+        f[1]=c
+    c+=1
+for i in range(1,n):
+    l1.append(l[i][-1])
+    if l[i][-1]==x and f[0]==-1:
+        f[0]=len(l1)-1 
+        f[1]=c
+    c+=1
+c=n+m-2
+for i in range(m-2,-1,-1):
+    l1.append(l[-1][i]) 
+    if l[-1][i]==x and (f[0]==-1 or f[1]>c) and x!=985:
+        f[1]=c 
+        f[0]=len(l1)-1
+    c-=1
+for i in range(n-2,0,-1):
+    l1.append(l[i][0])
+    if l[i][0]==x and (f[0]==-1 or f[1]>c) and x!=985:
+        f[1]=c 
+        f[0]=len(l1)-1
+    c-=1
+if x not in l1:
+    print(-1) 
+    quit()
+f=f[0]
+l1=l1[f:]+l1[:f]
+while l1:
+    print(l1[0],end=' ') 
+    l1=l1[1:] 
+    if l1:
+        print(l1[-1],end=' ') 
+        l1=l1[:-1]
+        
+        
