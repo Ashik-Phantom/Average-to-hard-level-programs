@@ -1,3 +1,9 @@
+/*
+Given a knapsack with capacity C and two arrays w[] and val[] representing the weights and values of N distinct items, 
+the task is to find the maximum value you can put into the knapsack.
+Items cannot be broken and an item with weight X takes X capacity of the knapsack.
+*/
+
 import java.util.*;
 
 import javax.lang.model.util.ElementScanner6;
