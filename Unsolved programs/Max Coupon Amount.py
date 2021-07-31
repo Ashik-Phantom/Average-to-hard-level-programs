@@ -28,8 +28,7 @@ Output:
 1410
 Explanation:The max coupon can be collected by choosing 10 1000 400.Max Execution Time Limit: 50 millisecs
 """
-
-r,c=map(int,input().split()))
+r,c = map(int,input().split())
 m=[list(map(int,input().split())) for i in range(r)]
 for j in range(c-2,-1,-1):
     for i in range(r):
@@ -37,7 +36,7 @@ for j in range(c-2,-1,-1):
         for n in range(r):
             if i-1<=n<=i+1:
                 continue
-        ma=max(ma,m[n][j+1])
-    m[i][j]+=ma 
+            ma=max(ma,m[n][j+1])
+        m[i][j]+=ma 
 print(max(list(zip(*m))[0]))
 
