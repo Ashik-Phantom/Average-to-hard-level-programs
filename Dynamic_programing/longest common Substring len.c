@@ -46,7 +46,7 @@ int dp(char* s1,char* s2,int r,int c)
             else if(s1[i-1]==s2[j-1])
             {
                 mat[i][j] = mat[i-1][j-1] + 1;
-                //result = max(result, mat[i][j]);
+                result = max(result, mat[i][j]);
             }
             else
                 mat[i][j] = 0;
@@ -64,3 +64,55 @@ int main()
     for(l2=0;s2[l2];l2++);
     printf("%d", dp(s1,s2,l1,l2));
 }
+
+
+/*
+# longest substring 
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int max(int a, int b)
+{
+    return a > b ? a : b;
+}
+
+int dp(char* s1,char* s2,int r,int c)
+{
+    int i,j;
+    int mat[r+1][c+1];
+    for(i=0;i<=r;i++)
+    {
+        for(j=0;j<=c;j++)
+        {
+            if(i==0 || j ==0)
+            {
+                mat[i][j] = 0;
+            }
+            else if(s1[i-1]==s2[j-1])
+            {
+                mat[i][j] = mat[i-1][j-1] + 1;
+            }
+            else if(mat[i-1][j] >= mat[i][j-1])
+            {
+                mat[i][j]=mat[i-1][j];
+            }
+            else
+            {
+                mat[i][j]=mat[i][j-1];
+            }
+        }
+    }
+    return mat[r][c]+1;
+}
+int main()
+{
+    int l1,l2,i,j;
+    char s1[10000],s2[10000];
+    scanf("%s\n",s1);
+    scanf("%s",s2);
+    for(l1=0;s1[l1];l1++);
+    for(l2=0;s2[l2];l2++);
+    printf("%d", dp(s1,s2,l1,l2));
+}
+*/
