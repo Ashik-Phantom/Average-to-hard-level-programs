@@ -33,3 +33,30 @@ Output:
 818809200
 */
 
+#include<stdio.h>
+
+int dp(int a, int b)
+{
+    int mat[a+1][b+1];
+    for(i=1;i<=a;i++)
+    {
+        for(j=1;j<=b;j++)
+        {
+            if(i==1 || j==1)
+                mat[i][j] = 1;
+            else
+                mat[i][j]=mat[i-1][j]+mat[i][j-1];
+        }
+    }
+    return dp[a][b];
+}
+
+int main()
+{
+    int a,b;
+    scanf("%d %d",&a,&b);
+    printf("%d",dp(a,b));
+}
+    
+          
+        
