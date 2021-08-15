@@ -42,5 +42,3 @@ Output:
 stars=2
 blackholes=4
 """
-
-r,c=map(int,input().split()) 
