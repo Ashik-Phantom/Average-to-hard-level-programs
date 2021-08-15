@@ -39,4 +39,3 @@ for j in range(c-2,-1,-1):
             ma=max(ma,m[n][j+1])
         m[i][j]+=ma 
 print(max(list(zip(*m))[0]))
-
