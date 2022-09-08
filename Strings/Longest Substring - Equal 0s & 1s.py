@@ -56,8 +56,11 @@ print(-1)
 n=input().strip()
 for i in range(len(n),1,-1):
     for j in range(len(n)-i+1):
-        a=n[j:j+i];x=len(a)//2
-        if a.count('1')==a.count('0') and len(set(a[:a.count('0')]))==1:print(a);exit()
+        a=n[j:j+i];
+        x=len(a)//2
+        if a.count('1')==a.count('0') and len(set(a[:a.count('0')]))==1:
+            print(a);
+            exit()
 print(-1)
 
 #########################################################################
